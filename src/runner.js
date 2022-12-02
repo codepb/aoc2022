@@ -22,9 +22,9 @@ const run = async () => {
         }
     ]);
 
-    const dayFolder = `${answers.day}/`;
+    const dayFolder = `${answers.day}`;
     
-    const func = (await import(`./${dayFolder}part${answers.part}.js`)).default;
+    const func = (await import(`./${dayFolder}/part${answers.part}.js`)).default;
 
     const input = getInput(`./src/${dayFolder}/inputs/${answers.input}.txt`);
 
