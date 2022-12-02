@@ -2,12 +2,9 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "start": "node --es-module-specifier-resolution=node ./src/runner.js"
+        "start": "yarn workspace answers build && yarn workspace console start"
     },
-    "devDependencies": {
-        "typescript": "^4.9.3"
-    },
-    "dependencies": {
-        "inquirer": "^9.1.4"
-    }
+    "workspaces": [
+        "src/*"
+    ]
 }

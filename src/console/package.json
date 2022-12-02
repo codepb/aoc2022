@@ -1,0 +1,12 @@
+{
+    "name": "console",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "start": "node --es-module-specifier-resolution=node ./runner.js"
+    },
+    "dependencies": {
+        "answers": "workspace:^",
+        "inquirer": "^9.1.4"
+    }
+}

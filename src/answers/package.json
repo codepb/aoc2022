@@ -1,0 +1,23 @@
+{
+    "name": "answers",
+    "private": true,
+    "type": "module",
+    "exports": {
+        "./*": "./dist/*"
+    },
+    "scripts": {
+        "clean": "rimraf dist/",
+        "copy-files": "cpy ./**/inputs/** dist",
+        "build": "yarn clean && tsc --project ./ && yarn copy-files"
+    },
+    "devDependencies": {
+        "@types/node": "^18.11.10",
+        "cpy-cli": "^4.2.0",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.9.3"
+    },
+    "dependencies": {
+        "fs": "^0.0.1-security",
+        "path": "^0.12.7"
+    }
+}
