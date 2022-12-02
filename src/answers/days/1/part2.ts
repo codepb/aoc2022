@@ -1,6 +1,7 @@
-function runner(input: string) {
-    const lines = input.split('\r\n');
+import type RunnerFunction from "../../types/RunnerFunction.js";
+import { splitLines } from "../../utils/string.js";
 
+const runner: RunnerFunction<number> = (input) => {
     let maxCalories = [0,0,0];
     let currentCalories = 0;
 
@@ -11,7 +12,7 @@ function runner(input: string) {
         }
     }
 
-    for(const line of lines) {
+    for(const line of splitLines(input)) {
         if (line === ''){
             checkAndUpdateMaxCalories(currentCalories);
             currentCalories = 0;

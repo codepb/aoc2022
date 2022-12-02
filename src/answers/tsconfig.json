@@ -6,7 +6,7 @@
       ],
       "declaration": true,
       "module": "ESNext",
-      "moduleResolution": "node",
+      "moduleResolution": "Node16",
       "rootDir": "./",
       "outDir": "./dist",
       "skipLibCheck": true

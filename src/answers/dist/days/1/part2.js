@@ -1,5 +1,5 @@
-function runner(input) {
-    const lines = input.split('\r\n');
+import { splitLines } from "../../utils/string.js";
+const runner = (input) => {
     let maxCalories = [0, 0, 0];
     let currentCalories = 0;
     function checkAndUpdateMaxCalories(calories) {
@@ -8,7 +8,7 @@ function runner(input) {
             maxCalories.sort((a, b) => b - a);
         }
     }
-    for (const line of lines) {
+    for (const line of splitLines(input)) {
         if (line === '') {
             checkAndUpdateMaxCalories(currentCalories);
             currentCalories = 0;
@@ -19,5 +19,5 @@ function runner(input) {
     }
     checkAndUpdateMaxCalories(currentCalories);
     return maxCalories.reduce((a, b) => a + b, 0);
-}
+};
 export default runner;
