@@ -1,11 +1,11 @@
 import type RunnerFunction from "../../types/RunnerFunction.js";
-import { splitLines } from "../../utils/string.js";
+import { isEmpty, splitLines } from "../../utils/string.js";
 
 const runner: RunnerFunction<number> = (input) => {
     let maxCalories = [0,0,0];
     let currentCalories = 0;
 
-    function checkAndUpdateMaxCalories(calories) {
+    function checkAndUpdateMaxCalories(calories: number) {
         if (calories > maxCalories[2]) {
             maxCalories[2] = calories;
             maxCalories.sort((a, b) => b - a);
@@ -13,7 +13,7 @@ const runner: RunnerFunction<number> = (input) => {
     }
 
     for(const line of splitLines(input)) {
-        if (line === ''){
+        if (isEmpty(line)){
             checkAndUpdateMaxCalories(currentCalories);
             currentCalories = 0;
             continue;
