@@ -4,3 +4,6 @@ export function splitLines(input) {
 export function splitSpaces(input) {
     return input.split(' ');
 }
+export function isEmpty(input) {
+    return input === '';
+}
