@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import getInput from './utils/getInput.js';
 
-const run = async () => {
+const runAnswer = async () => {
     const answers = await inquirer.prompt([
         { 
             type: 'text',
@@ -31,6 +31,22 @@ const run = async () => {
     const result = await func(input);
 
     console.log(result);
+
+    const runAgainAnswer = await inquirer.prompt([
+        { 
+            type: 'list',
+            name: 'runAgain',
+            message: 'Would you like to run another?',
+            choices: ['yes', 'no']
+        }]);
+
+    if(runAgainAnswer.runAgain === 'yes') {
+        await runAnswer();
+    }
+}
+
+const run = async () => {
+    await runAnswer();
 }
 
 run();

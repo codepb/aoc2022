@@ -2,7 +2,8 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "start": "yarn workspace answers build && yarn workspace console start"
+        "start": "yarn workspace answers build && yarn workspace console start",
+        "start:no-compile": "yarn workspace console start"
     },
     "workspaces": [
         "src/*"
