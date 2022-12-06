@@ -3,9 +3,13 @@
     "type": "module",
     "scripts": {
         "start": "yarn workspace answers build && yarn workspace console start",
-        "start:no-compile": "yarn workspace console start"
+        "start:no-compile": "yarn workspace console start",
+        "scaffold": "yarn hygen day new --day "
     },
     "workspaces": [
         "src/*"
-    ]
+    ],
+    "devDependencies": {
+        "hygen": "^6.2.11"
+    }
 }
