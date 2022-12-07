@@ -12,7 +12,7 @@ const runner: RunnerFunction<number> = (input) => {
                 case '..':
                     currentDirectory.pop();
                     break;
-                case '..':
+                case '/':
                     currentDirectory.length = 0;
                     break;
                 default:
