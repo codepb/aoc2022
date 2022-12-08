@@ -2,7 +2,8 @@
     "compilerOptions": {
       "target": "ESNext",
       "lib": [
-        "esnext",        
+        "esnext",
+        "DOM"      
       ],
       "declaration": true,
       "module": "ESNext",
