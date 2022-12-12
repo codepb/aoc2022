@@ -28,7 +28,7 @@ function buildShortestPathGrid(height: number, width: number, start: Coords) {
             if (i === start[0] && j === start[1]) {
                 arr[i][j] = 0;
             } else {
-                arr[i][j] = null;
+                arr[i][j] = Infinity;
             }
         }
     }
@@ -103,10 +103,10 @@ const runner: RunnerFunction<number> = (input) => {
     
     const { end } = findStartAndEnd(grid);
     const startPoints = findStartPoints(grid);
-    let shortestPath = 100000000;
+    let shortestPath = Infinity;
     for (const start of startPoints) {
         const shortestFromStart = findShortestPath(start, end, grid);
-        if (shortestFromStart !== null && shortestFromStart < shortestPath) {
+        if (shortestFromStart < shortestPath) {
             shortestPath = shortestFromStart;
         }
     }

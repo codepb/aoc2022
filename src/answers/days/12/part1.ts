@@ -28,7 +28,7 @@ function buildShortestPathGrid(height: number, width: number, start: Coords) {
             if (i === start[0] && j === start[1]) {
                 arr[i][j] = 0;
             } else {
-                arr[i][j] = null;
+                arr[i][j] = Infinity;
             }
         }
     }
