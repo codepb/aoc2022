@@ -37,7 +37,7 @@ function buildShortestPathGrid(height: number, width: number, start: Coords) {
 }
 
 function canVisit(current: string, next: string) {
-    return current.charCodeAt(0) >= next.charCodeAt(0) - 1;
+    return current.charCodeAt(0) - 1 <= next.charCodeAt(0);
 }
 
 function visitAdjacent(start: Coords, grid: string[][], shortestPath: number[][]) {
@@ -79,10 +79,16 @@ function visitAdjacent(start: Coords, grid: string[][], shortestPath: number[][]
     }
 }
 
-function findShortestPath(start: Coords, end: Coords, grid: string[][]) {
-    const shortestPathArray = buildShortestPathGrid(grid.length, grid[0].length, start);
-    visitAdjacent(start, grid, shortestPathArray);
-    return shortestPathArray[end[0]][end[1]];
+function findShortestPath(startPoints: Coords[], end: Coords, grid: string[][]) {
+    const shortestPathArray = buildShortestPathGrid(grid.length, grid[0].length, end);
+    visitAdjacent(end, grid, shortestPathArray);
+    let shortest = Infinity;
+    for (const start of startPoints) {
+        if (shortestPathArray[start[0]][start[1]] < shortest) {
+            shortest = shortestPathArray[start[0]][start[1]];
+        }
+    }
+    return shortest;
 }
 
 function findStartPoints(grid: string[][]) {
@@ -103,14 +109,7 @@ const runner: RunnerFunction<number> = (input) => {
     
     const { end } = findStartAndEnd(grid);
     const startPoints = findStartPoints(grid);
-    let shortestPath = Infinity;
-    for (const start of startPoints) {
-        const shortestFromStart = findShortestPath(start, end, grid);
-        if (shortestFromStart < shortestPath) {
-            shortestPath = shortestFromStart;
-        }
-    }
-    
+    const shortestPath = findShortestPath(startPoints, end, grid); 
     return shortestPath;
 }
 
