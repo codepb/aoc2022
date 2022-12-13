@@ -1,4 +1,10 @@
-export function splitLines(input: string) {
+export function splitLines(input: string): string[]
+export function splitLines<T>(input: string, mapFunction: (char: string) => T): T[]
+
+export function splitLines<T = string>(input: string, mapFunction?: (line: string) => T) {
+    if (mapFunction) {
+        return input.split('\r\n').map(mapFunction);
+    }
     return input.split('\r\n');
 }
 
